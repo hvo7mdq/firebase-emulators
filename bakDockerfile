@@ -1,0 +1,27 @@
+FROM python:3.12.2-bullseye as python-base
+
+################################################################################
+## setup container
+################################################################################
+# RUN apt update
+
+# The Firebase install scripts use sudo so we need to add it.
+#RUN sudo apt install -y
+RUN apt-get update -y
+RUN apt-get install curl -y
+RUN apt-get install libpq-dev -y
+# Install base tools
+
+# Fix issue with JRE installation
+# RUN sudo mkdir -p /usr/share/man/man1
+
+# RUN apt-get install openjdk-17-jre-headless -y
+RUN mkdir /app
+
+WORKDIR /app
+COPY . /app/
+COPY tools.sh /app/
+# RUN sudo chown -R docker:docker /app
+RUN chmod a+x /app/entrypoint.sh
+RUN chmod a+x /app/tools.sh
+ENTRYPOINT /app/entrypoint.sh
