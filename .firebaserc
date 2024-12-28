@@ -1,7 +1,6 @@
 {
   "projects": {
-    "qa": "qa-a-2cf51",
-    "default": "appyheretest-b"
+    "default": "<project-id>"
   },
   "targets": {},
   "etags": {}
