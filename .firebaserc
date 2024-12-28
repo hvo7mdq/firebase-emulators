@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "flutter-7441c"
-  }
+    "default": "<project-id>"
+  },
+  "targets": {},
+  "etags": {}
 }
